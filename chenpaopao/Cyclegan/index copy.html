@@ -67,10 +67,6 @@
         color: #FF33CC;
     }
     
-    #bluestrong {
-        color: #171dc1;
-    }
-    
     .paddingleft {
         text-indent: -25px;
         padding-left: 25px;
@@ -117,7 +113,7 @@
                     <a href="javascript:;">Xianchen Liang</a>&nbsp;&nbsp;&nbsp;<br>
                     <!-- <a href="javascript:;">2ed author</a>&nbsp;&nbsp;&nbsp;
                     <a href="javascript:;">3 author</a>&nbsp;&nbsp;&nbsp;<br> -->
-                    <a href="javascript:;">School of Artificial Intelligence</a>, <a target="_blank" href="https://www.rd.ntt/e/">Beijing University of Posts and Telecommunications (BUPT)</a>
+                    <a href="javascript:;">School of Artificial Intelligence</a>, <a href="https://www.rd.ntt/e/">Beijing University of Posts and Telecommunications (BUPT)</a>
                 </p>
                 <p class="lead">
                     ICCC 2022<br>
@@ -129,26 +125,76 @@
 
     <main>
         <div class="container">
+            <div class="row" id="news">
+                <div class="col-md-12">
+                    <h2>Please check out our relevant work!</h2>
+                    Previous work:
+                    <ul>
+                        <li><strong>CycleGAN-VCs:</strong>
+                            <a href="../cyclegan-vc/index.html"><strong>CycleGAN-VC</strong></a>,
+                            <a href="../cyclegan-vc2/index.html"><strong>CycleGAN-VC2</strong></a>,
+                            <a href="../cyclegan-vc3/index.html"><strong>CycleGAN-VC3</strong></a>,
+                        </li>
+                    </ul>
+                    Other relevant work:
+                    <ul>
+                        <li><strong>StarGAN-VCs:</strong>
+                            <a href="http://www.kecl.ntt.co.jp/people/kameoka.hirokazu/Demos/stargan-vc/"><strong>StarGAN-VC</strong></a>,
+                            <a href="../stargan-vc2/index.html"><strong>StarGAN-VC2</strong></a>
+                        </li>
+                        <li><strong>Other VCs:</strong>
+                            <a href="http://www.kecl.ntt.co.jp/people/kameoka.hirokazu/Demos/"><strong>Links to demo pages</strong></a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+
+            <hr>
+
+            <div class="row" id="paper">
+                <div class="col-md-12">
+                    <h2>Paper</h2>
+                    <div class="row align-items-center">
+                        <div class="thumbnailsize" align="center">
+                            <a href="https://arxiv.org/pdf/2102.12841.pdf"><img class="thumbnailshadow" src="images/paper_thumbnail.png" width=150></a>
+                        </div>
+                        <div class="col-md-9">
+                            <p>
+                                Takuhiro Kaneko, Hirokazu Kameoka, Kou Tanaka, and Nobukatsu Hojo<br>
+                                <strong>MaskCycleGAN-VC: Learning Non-parallel Voice Conversion with Filling in Frames</strong><br>
+                                <em>ICASSP 2021</em>
+                                <small>(arXiv:2102.12841, Feb. 2021)</small><br> [
+                                <a href="https://arxiv.org/abs/2102.12841">Paper</a>] [
+                                <a href="resources/MaskCycleGAN-VC_slides.pdf">Slides</a>] [
+                                <a href="resources/MaskCycleGAN-VC_poster.pdf">Poster</a>] [
+                                <a href="resources/MaskCycleGAN-VC.txt">BibTeX</a>]
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <hr>
+
             <div class="row" id="introduction">
                 <div class="col-md-12">
-                    <h2>PACycleGAN-VC</h2>
+                    <h2>MaskCycleGAN-VC</h2>
                     <div>
-                        <p align="justify">
-                            &nbsp;&nbsp;<strong>Non-parallel voice conversion (VC)</strong> is a voice mapping technology that uses non-parallel corpus to convert source speeches into target speeches while maintaining semantic information unchanged. Recently,
-                            Cycle-consistent adversarial network-based VC with Filling in Frames <strong id="bluestrong">(MaskCycleGAN-VC)</strong> [1] is proposed and generally accepted as current benchmark method. While it solves the problem of time-frequency
-                            structures consistency, the performance of voice conversion is not satisfactory enough, especially in inter-gender VC. There is still a large gap between target and converted voice in terms of naturalness and similarity. In
-                            addition, the performance of MaskCycleGAN-VC seriously deteriorates because of a limited amount of training data. In order to solve above problems, we propose <strong>Pyramid Attention CycyleGAN </strong><strong id="pinkstrong">(PACycyleGAN)</strong>                            for voice conversion which integrates pyramid structure and attention mechanism. We use Differentiable Augmentation, a method that improves the data efficiency of GANs and makes training more stable by imposing different types
-                            of differentiable augmentations on both real and fake speech samples. We evaluate the performance of <strong id="pinkstrong">PACycyleGAN</strong> on inter-gender and intra-gender non-parallel VC. Subjective and objective evaluations
-                            of naturalness and speaker similarity show that <strong id="pinkstrong">PACycyleGAN-VC</strong> outperforms <a target="_blank" href="https://arxiv.org/abs/2102.12841"><strong>MaskCycleGAN-VC</strong></a> for every VC pair.
+                        <p>
+                            <strong>Non-parallel voice conversion (VC)</strong> is a technique for training voice converters without a parallel corpus. Cycle-consistent adversarial network-based VCs (<a href="../cyclegan-vc/index.html"><strong>CycleGAN-VC</strong></a>                            <a href="#1">[1]</a> and <a href="../cyclegan-vc2/index.html"><strong>CycleGAN-VC2</strong></a> <a href="#2">[2]</a>) are widely accepted as benchmark methods. However, owing to their insufficient ability to grasp time-frequency
+                            structures, their application is limited to mel-cepstrum conversion and not mel-spectrogram conversion despite recent advances in mel-spectrogram vocoders. To overcome this, <a href="../cyclegan-vc3/index.html"><strong>CycleGAN-VC3</strong></a>                            <a href="#3">[3]</a>, an improved variant of CycleGAN-VC2 that incorporates an additional module called time-frequency adaptive normalization (TFAN), has been proposed. However, an increase in the number of learned parameters
+                            is imposed. As an alternative, we propose <strong id="pinkstrong">MaskCycleGAN-VC</strong>, which is another extension of CycleGAN-VC2 and is trained using a novel auxiliary task called <strong id="pinkstrong">filling in frames (FIF)</strong>.
+                            With FIF, we apply a temporal mask to the input mel-spectrogram and encourage the converter to fill in missing frames based on surrounding frames. This task allows the converter to learn time-frequency structures in a self-supervised
+                            manner and eliminates the need for an additional module such as TFAN. A subjective evaluation of the naturalness and speaker similarity showed that MaskCycleGAN-VC outperformed both CycleGAN-VC2 and CycleGAN-VC3 with a model
+                            size similar to that of CycleGAN-VC2.
                         </p>
 
                         <figure class="figure">
                             <center>
-                                <a name="fig1"><img src="images/PACyclegan-VC.png" class="figure-img" width="75%" alt="maskcyclegan-vc"></a>
+                                <a name="fig1"><img src="images/maskcyclegan-vc.png" class="figure-img" width="75%" alt="maskcyclegan-vc"></a>
                             </center>
                             <figcaption class="figure-caption">
-                                Figure 1. Network architectures of generator, including the proposed Pyramid Attention (PA) module. Top−left: Attention-Gated ResBlock with different atrous rates. Top−right: The operation of the attention fusion component between two feature levels in
-                                pyramid.
+                                Figure 1. Pipeline of Filling in Frames (FIF). We encourage the converter to fill in the missing frames (surrounded by the red box) based on the surrounding frames through a cyclic conversion process.
                             </figcaption>
                         </figure>
                     </div>
@@ -167,16 +213,17 @@
 
                     <h4>Experimental conditions</h4>
                     <ul>
-                        <li>We evaluated our method on the <strong>Spoke</strong> (i.e., <strong>non-parallel VC</strong>) task of <a target="_blank" href="https://datashare.is.ed.ac.uk/handle/10283/3061"><strong>the Voice Conversion Challenge 2018 (VCC 2018)</strong></a>                            <a href="#2">[2]</a>.</li>
+                        <li>We evaluated our method on the <strong>Spoke</strong> (i.e., <strong>non-parallel VC</strong>) task of <a href="https://datashare.is.ed.ac.uk/handle/10283/3061"><strong>the Voice Conversion Challenge 2018 (VCC 2018)</strong></a>                            <a href="#4">[4]</a>.</li>
                         <li>For each speaker, 81 sentences (approximately <strong>5 min</strong> in length, which is relatively short for VC) were used for training.</li>
                         <li>The training set contains <strong>no overlapping utterances</strong> between the source and target speakers; therefore, we need to learn a converter in a <strong>fully non-parallel setting</strong>.</li>
-                        <li>We used <a target="_blank" href="https://github.com/descriptinc/melgan-neurips"><strong>MelGAN</strong></a> <a href="#3">[3]</a> as a vocoder.</li>
+                        <li>We used <a href="https://github.com/descriptinc/melgan-neurips"><strong>MelGAN</strong></a> <a href="#5">[5]</a> as a vocoder.</li>
                     </ul>
 
                     <h4>Compared models</h4>
                     <ul>
-                        <li><strong>Mask</strong>: <a target="_blank" href="http://www.kecl.ntt.co.jp/people/kaneko.takuhiro/projects/maskcyclegan-vc/index.html"><strong>MaskCycleGAN-VC</strong></a> <a href="#1">[1]</a></li>
-                        <li><strong id="pinkstrong">PA</strong>: <strong id="pinkstrong">PACycleGAN-VC</strong></li>
+                        <li><strong>V2</strong>: <a href="../cyclegan-vc2/index.html"><strong>CycleGAN-VC2</strong></a> <a href="#2">[2]</a></li>
+                        <li><strong>V3</strong>: <a href="../cyclegan-vc3/index.html"><strong>CycleGAN-VC3</strong></a> <a href="#3">[3]</a></li>
+                        <li><strong id="pinkstrong">Mask</strong>: <strong id="pinkstrong">MaskCycleGAN-VC</strong></li>
                     </ul>
 
                     <h4>Results</h4>
@@ -197,7 +244,7 @@
                                     <th>Source</th>
                                     <th>Target</th>
                                     <th>Mask</th>
-                                    <th id="pinkstrong">PA</th>
+                                    <th id="pinkstrong">ADC-Mask</th>
                                 </tr>
                             </thead>
                             <tbody>
@@ -309,7 +356,7 @@
                                     <th>Source</th>
                                     <th>Target</th>
                                     <th>Mask</th>
-                                    <th id="pinkstrong">PA</th>
+                                    <th id="pinkstrong">ADC-Mask</th>
                                 </tr>
                             </thead>
                             <tbody>
@@ -413,7 +460,7 @@
                                     <th>Source</th>
                                     <th>Target</th>
                                     <th>Mask</th>
-                                    <th id="pinkstrong">PA</th>
+                                    <th id="pinkstrong">ADC-Mask</th>
                                 </tr>
                             </thead>
                             <tbody>
@@ -518,7 +565,7 @@
                                     <th>Source</th>
                                     <th>Target</th>
                                     <th>Mask</th>
-                                    <th id="pinkstrong">PA</th>
+                                    <th id="pinkstrong">ADC-Mask</th>
                                 </tr>
                             </thead>
                             <tbody>
@@ -622,16 +669,32 @@
                     <h2>References</h2>
 
                     <div class="paddingleft">
-                        <a name="1" class="text-primary">[1]</a> Takuhiro Kaneko, Hirokazu Kameoka, Kou Tanaka, and Nobukatsu Hojo.
-                        <strong>MaskCycleGAN-VC: Learning Non-parallel Voice Conversion with Filling in Frames</strong>.
-                        <em>arXiv:2102.12841</em>, Feb. 2021
-                        <em>ICASSP</em>, 2021. [
-                        <a target="_blank" href="https://arxiv.org/abs/2102.12841">Paper</a>] [
-                        <a target="_blank" href="http://www.kecl.ntt.co.jp/people/kaneko.takuhiro/projects/maskcyclegan-vc/index.html">Project</a>]
+                        <a name="1" class="text-primary">[1]</a> T. Kaneko, H. Kameoka.
+                        <strong>Parallel-Data-Free Voice Conversion Using Cycle-Consistent Adversarial Networks</strong>.
+                        <em>arXiv:1711.11293</em>, Nov. 2017 (
+                        <em>EUSIPCO</em>, 2018). [
+                        <a href="https://arxiv.org/abs/1711.11293">Paper</a>] [
+                        <a href="../cyclegan-vc/index.html">Project</a>]
                     </div>
 
                     <div class="paddingleft">
-                        <a name="2" class="text-primary">[2]</a> J. Lorenzo-Trueba, J. Yamagishi, T. Toda, D. Saito, F. Villavicencio, T. Kinnunen, Z. Ling.
+                        <a name="2" class="text-primary">[2]</a> T. Kaneko, H. Kameoka, K. Tanaka, N. Hojo.
+                        <strong>CycleGAN-VC2: Improved CycleGAN-based Non-parallel Voice Conversion</strong>.
+                        <em>ICASSP</em>, 2019. [
+                        <a href="https://arxiv.org/abs/1904.04631">Paper</a>] [
+                        <a href="../cyclegan-vc2/index.html">Project</a>]
+                    </div>
+
+                    <div class="paddingleft">
+                        <a name="3" class="text-primary">[3]</a> T. Kaneko, H. Kameoka, K. Tanaka, N. Hojo.
+                        <strong>CycleGAN-VC3: Examining and Improving CycleGAN-VCs for Mel-spectrogram Conversion</strong>.
+                        <em>Interspeech</em>, 2020. [
+                        <a href="https://arxiv.org/abs/2010.11672">Paper</a>] [
+                        <a href="../cyclegan-vc3/index.html">Project</a>]
+                    </div>
+
+                    <div class="paddingleft">
+                        <a name="4" class="text-primary">[4]</a> J. Lorenzo-Trueba, J. Yamagishi, T. Toda, D. Saito, F. Villavicencio, T. Kinnunen, Z. Ling.
                         <strong>The Voice Conversion Challenge 2018: Promoting Development of Parallel and Nonparallel Methods</strong>.
                         <em>Odyssey</em>, 2018. [
                         <a href="https://arxiv.org/abs/1804.04262">Paper</a>] [
@@ -639,7 +702,7 @@
                     </div>
 
                     <div class="paddingleft">
-                        <a name="3" class="text-primary">[3]</a> K. Kumar, R. Kumar, T. de Boissiere, L. Gestin, W. Z. Teoh, J. Sotelo, A. de Brebisson, Y. Bengio, A. Courville.
+                        <a name="5" class="text-primary">[5]</a> K. Kumar, R. Kumar, T. de Boissiere, L. Gestin, W. Z. Teoh, J. Sotelo, A. de Brebisson, Y. Bengio, A. Courville.
                         <strong>MelGAN: Generative Adversarial Networks for Conditional Waveform Synthesis</strong>.
                         <em>NeurIPS</em>, 2019. [
                         <a href="https://arxiv.org/abs/1910.06711">Paper</a>] [
@@ -655,9 +718,9 @@
     <footer class="footer">
         <div class="container">
             <p class="text-center"><small>
-	    <strong>PACycleGAN-VC:</strong><br>
-	    <strong>Pyramid Attention CycleGAN for Non-Parallel Voice Conversion</strong><br>
-	    <a href="javascript:void(0);">Xianchen Liang</a> | liangxianchen@bupt.edu.cn </small></p>
+	    <strong>MaskCycleGAN-VC:</strong><br>
+	    <strong>Learning Non-parallel Voice Conversion with Filling in Frames</strong><br>
+	    <a href="../../index.html">Takuhiro Kaneko</a> | takuhiro.kaneko.tb at hco.ntt.co.jp</small></p>
         </div>
     </footer>
 
